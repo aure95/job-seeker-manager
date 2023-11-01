@@ -2,10 +2,10 @@ import { ApplicationStatus } from "./application-status"
 import { Company } from "./company"
 import { Website } from "./website"
 
+
 export interface Application {
 
   id: number,
-  company_url: string,
   provider_site: Website,
   company: Company,
   application_date: Date
