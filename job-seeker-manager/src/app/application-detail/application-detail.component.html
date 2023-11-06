@@ -1,5 +1,5 @@
 <div>
-  <section>
+  <a [routerLink]="['/applications', application.id]">
     <span>{{application.id}}</span><br>
     <span>{{application.application_date}}</span><br>
     <span>{{application.contact}}</span><br>
@@ -8,6 +8,6 @@
     <span>{{application.relaunch_date | date:'medium'}}</span><br>
     <span>{{application.end_date | date:'medium'}}</span><br>
     <span>{{application.status}}</span><br>
-  </section>
+  </a>
 </div>
 
