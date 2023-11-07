@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ApplicationService } from '../application.service';
+import { Application } from '../application';
 
 @Component({
   selector: 'app-application-form',
@@ -8,20 +10,24 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ApplicationFormComponent {
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+    private applicationService: ApplicationService) {
 
   }
 
   applicationForm = this.formBuilder.group({
-    name: '',
-    address: ''
+    contact: '',
+    company_name: '',
+    company_address: '',
+    company_history: '',
+    company_url: ''
   });
 
+
   onSubmit(): void {
-    // Process checkout data here
-    // this.items = this.cartService.clearCart();
-    console.warn('Your order has been submitted', this.applicationForm.value);
-    // this.checkoutForm.reset();
+    this.applicationService.submitApplication(this.applicationForm.value)
+    console.log('Your order has been submitted', this.applicationForm.value.contact);
+    this.applicationForm.reset();
   }
 
 

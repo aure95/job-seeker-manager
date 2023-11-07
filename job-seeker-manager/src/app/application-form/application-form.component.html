@@ -1,19 +1,33 @@
 <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
 
   <div>
-    <label for="name">
-      Name
+    <label for="company_name">
+      Company name
     </label>
-    <input id="name" type="text" formControlName="name">
+    <input id="company_name" type="text" formControlName="company_name">
   </div>
 
-  <div>
-    <label for="address">
-      Address
+    <div>
+    <label for="company_address">
+      Company Adress
     </label>
-    <input id="address" type="text" formControlName="address">
+    <input id="company_address" type="text" formControlName="company_address">
   </div>
 
-  <button class="button" type="submit">Purchase</button>
+    <div>
+    <label for="company_history">
+      Company History
+    </label>
+    <input id="company_history" type="text" formControlName="company_history">
+  </div>
+
+    <div>
+    <label for="contact">
+      Contact
+    </label>
+    <input id="contact" type="text" formControlName="contact">
+  </div>
+
+  <button class="button" type="submit">Add</button>
 
 </form>
