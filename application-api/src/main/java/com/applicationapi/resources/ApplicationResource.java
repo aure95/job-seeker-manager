@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.applicationapi.domains.Application;
 import com.applicationapi.services.ApplicationService;
+import com.applicationapi.services.ExcelService;
 
 // import com.applicationapi.domains.Application;
 // import com.applicationapi.services.ApplicationService;
@@ -23,8 +24,12 @@ public class ApplicationResource {
     @Autowired
     private ApplicationService applicationService;
 
-    public ApplicationResource(ApplicationService applicationService) {
+    @Autowired
+    private ExcelService excelService;
+
+    public ApplicationResource(ApplicationService applicationService, ExcelService excelService) {
         this.applicationService = applicationService;
+        this.excelService = excelService;
     }
 
 
@@ -33,13 +38,18 @@ public class ApplicationResource {
         return "test OK";
     }
 
-    // @PostMapping("/applications")
-    // public Application addApplication(@RequestBody Application application) {
-    //     return applicationService.addApplication(application);
-    // }
+    @GetMapping("/upload")
+    public Object upload() {
+        return excelService.readExcel("C:\\Users\\mouau\\OneDrive\\Documents\\recherche_emploi_2024.xls");
+    }
 
-    // @GetMapping("/applications")
-    // public List<Application> getApplications() {
-    //     return applicationService.getApplications();
-    // }
+    @PostMapping("/applications")
+    public Application addApplication(@RequestBody Application application) {
+        return applicationService.addApplication(application);
+    }
+
+    @GetMapping("/applications")
+    public List<Application> getApplications() {
+        return applicationService.getApplications();
+    }
 }
