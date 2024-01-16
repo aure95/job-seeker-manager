@@ -1,5 +1,6 @@
 package com.applicationapi.resources;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,7 @@ public class ApplicationResource {
 
     @GetMapping("/upload")
     public Object upload() {
-        return excelService.readExcel("C:\\Users\\mouau\\OneDrive\\Documents\\recherche_emploi_2024.xls");
+        return Arrays.toString(excelService.readExcel("C:\\Users\\mouau\\OneDrive\\Documents\\recherche_emploi_2024.xls").toArray());
     }
 
     @PostMapping("/applications")
