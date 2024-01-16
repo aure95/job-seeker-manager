@@ -30,7 +30,6 @@ public class ExcelService {
         int index = 0;
         try (InputStream inp = new FileInputStream(excelFileName)) {
             wb = new HSSFWorkbook(new POIFSFileSystem(inp));
-            /////////////
             HSSFSheet sheet = wb.getSheetAt(0);
               for (Row row : sheet) {
                 Object rowDatas = null;
@@ -47,7 +46,6 @@ public class ExcelService {
                         default:
                             cellValue = cell.toString();
                     }
-                    // String cellValue = cell.toString();
                     if (cellValue == null) {
                         cellValue = "";
                     }
